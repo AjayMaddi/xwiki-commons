@@ -432,6 +432,9 @@ public final class XMLUtils
                     result.append(GT);
                     break;
                 case '{':
+                    // Not needed from XML point of view but
+                    // escaping xwiki/2.x macro syntax helps avoid countlessAdd commentMore actions
+                    // security problems easily
                     result.append(LCURL);
                     break;
                 default:
@@ -472,6 +475,11 @@ public final class XMLUtils
                     break;
                 case '<':
                     result.append(LT);
+                    break;
+                case '{':
+                    // Not needed from XML point of view but escaping xwiki/2.x macro syntax helps avoid countless
+                    // security problems easily
+                    result.append(LCURL);
                     break;
                 default:
                     result.append(c);

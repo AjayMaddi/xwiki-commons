@@ -316,6 +316,18 @@
         <artifactId>commons-lang3</artifactId>
         <version>3.11</version>
       </dependency>
+
+
+
+          <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.service.prefs</artifactId>
+            <version>1.1.2</version>
+          </dependency>
+
+
+
+
       <!-- We don't use Commons Lang 2.x ourselves (we use Commons Lang 3.x) but some of our transitive dependencies
            require Commons Lang. The issue is that Maven uses a "closest-to-root" strategy to resolve dependency
            versions and since the transitive dependencies that require Commons Lang don't use version ranges we need
@@ -1936,7 +1948,15 @@
               <groupId>fr.inria.gforge.spoon</groupId>
               <artifactId>spoon-core</artifactId>
               <version>${spoon.version}</version>
+              <exclusions>
+                <exclusion>
+                  <groupId>org.osgi</groupId>
+                  <artifactId>org.osgi.service.prefs</artifactId>
+                </exclusion>
+              </exclusions>
             </dependency>
+
+
           </dependencies>
         </plugin>
         <!-- Used to check/update license headers -->
